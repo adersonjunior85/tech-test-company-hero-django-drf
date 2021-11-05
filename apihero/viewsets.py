@@ -15,12 +15,11 @@ class EmployeesViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.EmployeerSerializer
     queryset = Employee.objects.all()
     filter_backends = (filters.DjangoFilterBackend,)
-    filterset_class = EmployeeFilter
-    lookup_field = 'cpf'
-
+    filterset_class = EmployeeFilter    
+    lookup_field = 'name'   
     @action(methods=['get','post'], detail=True)
-    def companies(self, request , cpf=None, **kwargs):
-        employee: Employee = Employee.objects.get(cpf=cpf) 
+    def companies(self, request , name=None, **kwargs):
+        employee: Employee = Employee.objects.get(name=name) 
         if (request.method == 'GET'):
             return Response(serializers.CompanySerializer(Company.objects.filter(employees=employee), many=True).data)
         if (request.method == 'POST'):
