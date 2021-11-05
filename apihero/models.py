@@ -14,7 +14,6 @@ class Company(models.Model):
 
 class Employee(models.Model):
     name = models.CharField(max_length=50)
-    idade = models.IntegerField()
     cargo = models.CharField(max_length=50)
     cpf = models.CharField(max_length=11, unique=True)
     companies = models.ManyToManyField(Company, related_name='employees')
