@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "nome": "Hero",
+        "cnpj": "5454121",
+        "email": "adanksd@dlnsa.com",
+        "site": "www.abacaxi.com.br",
+        "endereco": "rua capitao jorge",
+        "telefone": "4541545"
+    },
+    {
+        "id": 2,
+        "nome": "Amazon",
+        "cnpj": "5454121232",
+        "email": "aaaaaad@aaaaaaa.com",
+        "site": "www.teste.com.br",
+        "endereco": "rua capitao jorge",
+        "telefone": "5555555"
+    }
+]
