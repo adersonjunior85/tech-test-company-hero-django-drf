@@ -23,7 +23,7 @@ class EmployeesViewSet(viewsets.ModelViewSet):
         if (request.method == 'GET'):
             return Response(serializers.CompanySerializer(Company.objects.filter(employees=employee), many=True).data)
         if (request.method == 'POST'):
-            company = Company.objects.filter(id=request.data.get('company')).first()
+            company = Company.objects.filter(cnpj=request.data.get('company')).first()
             if not company:
                 company = Company(request.data)
                 company.save()
