@@ -4,7 +4,8 @@ from apihero.models import Company,Employee
 class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         model= Company
-        fields='__all__'
+        fields=["id","nome","cnpj","site","email","endereco","telefone","employees"]
+        depth = 1 
     
 class EmployeerSerializer(serializers.ModelSerializer):
     class Meta:
