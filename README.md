@@ -93,7 +93,7 @@ Vary: Accept
     }
 ]
 ```
-### GET /companies/<cnpj>
+### GET /companies/`cnpj`
 #
 ##### Retorna a empresa com o seu respectivo CNPJ
 #
@@ -161,7 +161,7 @@ Vary: Accept
     ]
 }
 ```
-### GET /employees/<nome>
+### GET /employees/`name`
 #
 ##### Retorna os dados do funcionário cadastrado de acordo com o nome
 #
@@ -208,7 +208,7 @@ Vary: Accept
     "cpf": "72225655144"
 }
 ```
-### GET /employees/<name>/companies
+### GET /employees/`name`/companies
 #
 ##### Retorna exclusivamente todas as empresas do funcionário de acordo com o nome
 #
@@ -279,9 +279,9 @@ Vary: Accept
     }
 ]
 ```
-### POST /employees/<name>/companies
+### POST /employees/`name`/companies
 #
-##### Cadastra a empresa para o funcionario <name> enviando o id
+##### Cadastra a empresa para o funcionario `name` enviando o id
 #
 ##### Exemplo de post:
 #
