@@ -279,7 +279,7 @@ Vary: Accept
     }
 ]
 ```
-### POST /employees/`name`/companies
+### POST /employees/`name`/companies/
 #
 ##### Cadastra a empresa para o funcionario `name` enviando o id
 #
