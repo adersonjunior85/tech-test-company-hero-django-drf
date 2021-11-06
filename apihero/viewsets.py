@@ -10,7 +10,7 @@ from rest_framework.decorators import action
 class CompanyViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.CompanySerializer
     queryset = Company.objects.all()
-    lookup_field = 'cnpj'   
+    lookup_field = 'cnpj'
 
 class EmployeesViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.EmployeerSerializer
@@ -24,7 +24,7 @@ class EmployeesViewSet(viewsets.ModelViewSet):
         if (request.method == 'GET'):
             return Response(serializers.CompanySerializer(Company.objects.filter(employees=employee), many=True).data)
         if (request.method == 'POST'):
-            company = Company.objects.filter(cnpj=request.data.get('company')).first()
+            company = Company.objects.filter(cnpj=request.data.get('cnpj')).first()
             if not company:
                 company = Company(request.data)
                 company.save()
