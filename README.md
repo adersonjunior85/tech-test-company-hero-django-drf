@@ -23,27 +23,79 @@ Vary: Accept
 [
     {
         "id": 1,
-        "nome": "Amazon.com",
-        "cnpj": "15436940000103",
-        "site": "https://www.amazon.com.br",
-        "email": "amazon@amazon.com",
-        "endereco": "Seattle",
-        "telefone": "88888888888"
+        "nome": "Amazon",
+        "cnpj": "5454121232",
+        "site": "www.teste.com.br",
+        "email": "aaaaaad@aaaaaaa.com",
+        "endereco": "rua capitao jorge",
+        "telefone": "5555555",
+        "employees": [
+            {
+                "id": 1,
+                "name": "Cácio",
+                "cargo": "Dev",
+                "cpf": "11800363443",
+                "companies": [
+                    1,
+                    2
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Aderson",
+                "cargo": "Dev",
+                "cpf": "00000000000",
+                "companies": [
+                    1
+                ]
+            },
+            {
+                "id": 3,
+                "name": "Claudio Ribeiro",
+                "cargo": "Web Developer",
+                "cpf": "70012456288",
+                "companies": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "id": 2,
+        "nome": "Banco do brasil",
+        "cnpj": "5454121231",
+        "site": "www.teste.com.br",
+        "email": "aaaaaad@aaaaaaa.com",
+        "endereco": "rua capitao jorge",
+        "telefone": "5555555",
+        "employees": [
+            {
+                "id": 1,
+                "name": "Cácio",
+                "cargo": "Dev",
+                "cpf": "11800363443",
+                "companies": [
+                    1,
+                    2
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
         "nome": "Company Hero",
         "cnpj": "20240272000176",
         "site": "www.companyhero.com",
         "email": "companyhero@companyhero.com",
         "endereco": "Av. Paulista, 171 - 4º andar - Bela Vista, São Paulo - SP, 01311-000",
-        "telefone": "11999999999"
+        "telefone": "11999999999",
+        "employees": []
     }
 ]
 ```
-### GET /companies/<id>
+### GET /companies/`cnpj`
 #
-##### Retorna a empresa com o seu respectivo ID
+##### Retorna a empresa com o seu respectivo CNPJ
 #
 ##### Exemplo de resultado:
 #
@@ -109,7 +161,7 @@ Vary: Accept
     ]
 }
 ```
-### GET /employees/<nome>
+### GET /employees/`name`
 #
 ##### Retorna os dados do funcionário cadastrado de acordo com o nome
 #
@@ -117,19 +169,28 @@ Vary: Accept
 #
 ```bash
 {
-    "id": 4,
-    "name": "Marcos Vinicius",
-    "cargo": "Web Developer",
-    "cpf": "70025632144",
+    "id": 1,
+    "name": "Cácio",
+    "cargo": "Dev",
+    "cpf": "11800363443",
     "companies": [
         {
             "id": 1,
-            "nome": "Amazon.com",
-            "cnpj": "15436940000103",
-            "site": "https://www.amazon.com.br",
-            "email": "amazon@amazon.com",
-            "endereco": "Seattle",
-            "telefone": "88888888888"
+            "nome": "Amazon",
+            "cnpj": "5454121232",
+            "email": "aaaaaad@aaaaaaa.com",
+            "site": "www.teste.com.br",
+            "endereco": "rua capitao jorge",
+            "telefone": "5555555"
+        },
+        {
+            "id": 2,
+            "nome": "Banco do brasil",
+            "cnpj": "5454121231",
+            "email": "aaaaaad@aaaaaaa.com",
+            "site": "www.teste.com.br",
+            "endereco": "rua capitao jorge",
+            "telefone": "5555555"
         }
     ]
 }
@@ -147,7 +208,7 @@ Vary: Accept
     "cpf": "72225655144"
 }
 ```
-### GET /employees/<name>/companies
+### GET /employees/`name`/companies
 #
 ##### Retorna exclusivamente todas as empresas do funcionário de acordo com o nome
 #
@@ -157,33 +218,76 @@ Vary: Accept
 [
     {
         "id": 1,
-        "nome": "Amazon.com",
-        "cnpj": "15436940000103",
-        "site": "https://www.amazon.com.br",
-        "email": "amazon@amazon.com",
-        "endereco": "Seattle",
-        "telefone": "88888888888"
+        "nome": "Amazon",
+        "cnpj": "5454121232",
+        "site": "www.teste.com.br",
+        "email": "aaaaaad@aaaaaaa.com",
+        "endereco": "rua capitao jorge",
+        "telefone": "5555555",
+        "employees": [
+            {
+                "id": 1,
+                "name": "Cácio",
+                "cargo": "Dev",
+                "cpf": "11800363443",
+                "companies": [
+                    1,
+                    2
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Aderson",
+                "cargo": "Dev",
+                "cpf": "00000000000",
+                "companies": [
+                    1,
+                    3
+                ]
+            },
+            {
+                "id": 3,
+                "name": "Claudio Ribeiro",
+                "cargo": "Web Developer",
+                "cpf": "70012456288",
+                "companies": [
+                    1
+                ]
+            }
+        ]
     },
     {
-        "id": 2,
+        "id": 3,
         "nome": "Company Hero",
         "cnpj": "20240272000176",
         "site": "www.companyhero.com",
         "email": "companyhero@companyhero.com",
         "endereco": "Av. Paulista, 171 - 4º andar - Bela Vista, São Paulo - SP, 01311-000",
-        "telefone": "11999999999"
+        "telefone": "11999999999",
+        "employees": [
+            {
+                "id": 2,
+                "name": "Aderson",
+                "cargo": "Dev",
+                "cpf": "00000000000",
+                "companies": [
+                    1,
+                    3
+                ]
+            }
+        ]
     }
 ]
 ```
-### POST /employees/<name>/companies
+### POST /employees/`name`/companies
 #
-##### Cadastra a empresa para o funcionario <name> enviando o id
+##### Cadastra a empresa para o funcionario `name` enviando o id
 #
 ##### Exemplo de post:
 #
 ```bash
 {
-    "companies": 1
+    "cnpj": "20240272000176"
 }
 ```
 # Explicação da lógica utilizada e decisões tomadas durante o projeto
