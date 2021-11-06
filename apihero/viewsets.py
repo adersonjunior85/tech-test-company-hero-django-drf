@@ -10,6 +10,7 @@ from rest_framework.decorators import action
 class CompanyViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.CompanySerializer
     queryset = Company.objects.all()
+    lookup_field = 'cnpj'
 
 class EmployeesViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.EmployeerSerializer
